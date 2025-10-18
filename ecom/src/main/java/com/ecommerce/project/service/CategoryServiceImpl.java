@@ -14,8 +14,7 @@ import java.util.Optional;
 @Service
 public class CategoryServiceImpl implements CategoryService {
 
-    private Long nextId = 1L;
-//    private List<Category> categories = new ArrayList<>();
+
     @Autowired
     private CategoryRepository categoryRepository;
 
