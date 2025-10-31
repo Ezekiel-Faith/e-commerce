@@ -15,24 +15,32 @@ import java.util.Set;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "users")
+@Table(name = "users",
+        uniqueConstraints = {
+        @UniqueConstraint(columnNames = "username"),
+        @UniqueConstraint(columnNames = "password")
+        })
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id")
     private Long userId;
 
     @NotBlank
     @Size(min = 5, max = 20)
+    @Column(name = "username")
     private String username;
 
     @NotBlank
     @Size(min = 5, max = 50)
     @Email
+    @Column(name = "email")
     private String email;
 
     @NotBlank
     @Size(min = 6, max = 120)
+    @Column(name = "password")
     private String password;
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
