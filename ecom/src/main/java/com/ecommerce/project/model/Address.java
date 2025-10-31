@@ -31,6 +31,10 @@ public class Address {
     private String buildingName;
 
     @NotBlank
+    @Size(min = 4, message = "City name must be atleast 4 characters")
+    private String city;
+
+    @NotBlank
     @Size(min = 2, message = "State name must be at least 2 characters")
     private String state;
 
